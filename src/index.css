@@ -1,13 +1,265 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.cards-container {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: fit-content;
+  width: fit-content;
+  max-width: 80%;
+  gap: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card {
+  padding: 15px 20px;
+  height: 240px;
+  width: 270px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey;
+  transition: all 0.5s; /* Add transition here for hover effects */
+}
+
+.card:hover {
+  box-shadow: 2px 1px 15px grey;
+}
+
+.card-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+}
+
+.location-icon{
+  height: 12px;
+  color: gray;
+}
+
+.location {
+ padding-left:2px;
+ font-size: small;
+ color: gray;
+ font-weight: 500;
+}
+
+.phone-icon{
+  color: black;
+  height: 15px;
+}
+
+.phone{
+  color: grey;
+  font-size: 14px;
+}
+
+.card-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 50px;
+
+  button{
+    color: white;
+    background-color: black;
+    padding: 13px;
+    border-radius: 10px;
+    border:none;
+    font-weight: 500;
+  }
+
+  .close-button{
+    margin: 2px;
+    position: absolute;
+    right:10px;
+    background-color: #fff;
+    color: black;
+    border: 1px black solid;
+    padding: 10px 18px;
+  }
+}
+
+.name {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  max-height: fit-content;
+  background: linear-gradient(
+      to top,
+      rgba(30, 103, 249, 0.3),
+      rgba(165, 195, 255, 0.3),
+      rgb(255, 255, 255)
+    ),
+    url("https://www.girmantech.com/bg_home_hero.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-container {
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7vh;
+}
+
+#searchBar {
+  width: 30vw;
+  height: 5vh;
+  box-shadow: 2px 1px 3px 1px rgba(128, 128, 128, 0.585);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  #searchBar {
+    width: 80vw;
+  }
+}
+
+.navigation-bar {
+  background-color: white;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2vh 0;
+  box-shadow: 1px 0px 5px;
+}
+
+.nav-items-list {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.nav-item {
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+#nav-search-bar {
+  width: 15vw;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.359);
+  border-radius: 5px;
+  color: grey;
+}
+
+#main-logo {
+  width: 14vw;
+  height: auto;
+}
+
+#search-logo {
+  width: 35%;
+  height: 150px;
+  padding-bottom: 1em;
+}
+
+.searchbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: grey;
+  pointer-events: none;
+}
+
+.searchbox {
+  padding: 10px 40px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 400px;
+  font-size: 16px;
+}
+
+.searchbox:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 50px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-size: 14px;
+}
+
+.dialog-box-image{
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin-top: 10px;
+}
+
+.sub-description{
+  color: gray;
+  font-size: 15px;
+  margin-bottom: 13px;
 }
