@@ -1,8 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import SearchBox from "./SearchBox";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <nav className="navigation-bar">
@@ -17,23 +24,42 @@ const Navbar = () => {
           />
         </Link>
       </div>
+
       {location.pathname.includes("results") ? (
-        <SearchBox />
+        <div className="searchbox-wrapper">
+          <SearchBox />
+        </div>
       ) : (
-        <ul className="nav-items-list">
-          <Link to="/">
-            <li className="nav-item">SEARCH</li>
-          </Link>
-          <Link to="https://www.girmantech.com/">
-            <li className="nav-item">WEBSITE</li>
-          </Link>
-          <Link to="https://www.linkedin.com/company/girmantech/">
-            <li className="nav-item">LINKEDIN</li>
-          </Link>
-          <Link to="mailto:contact@girmantech.com">
-            <li className="nav-item">CONTACT</li>
-          </Link>
-        </ul>
+        <>
+          <div className="hamburger-icon" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
+          <div className={`nav-items ${isMobileMenuOpen ? "show" : ""}`}>
+            <ul className="nav-items-list">
+              <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                <li className="nav-item">SEARCH</li>
+              </Link>
+              <Link
+                to="https://www.girmantech.com/"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <li className="nav-item">WEBSITE</li>
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/girmantech/"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <li className="nav-item">LINKEDIN</li>
+              </Link>
+              <Link
+                to="mailto:contact@girmantech.com"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <li className="nav-item">CONTACT</li>
+              </Link>
+            </ul>
+          </div>
+        </>
       )}
     </nav>
   );
