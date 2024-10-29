@@ -16,7 +16,7 @@ const SearchBox = () => {
   return (
     <div className="searchbox-container">
       <div className="search-input-wrapper">
-        <FaSearch className="search-icon" />
+        <FaSearch className="search-icon" onClick={handleSearch}/>
         <input
           type="text"
           value={query}
