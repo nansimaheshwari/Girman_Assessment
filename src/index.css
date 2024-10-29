@@ -440,6 +440,11 @@ body {
 }
 
 @media (max-width: 600px) {
+  #search-logo {
+    width: 60%;
+    padding-bottom: -40px;
+  }
+
   .card {
     width: 100%;
     padding: 12px;
@@ -498,5 +503,28 @@ body {
   .phone-icon,
   .location-icon {
     height: 12px;
+  }
+
+  .dialog-content {
+    background-color: #fff;
+    padding: 20px;
+    padding-bottom: 50px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 65%;
+    height: 43%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-size: 10px;
+  }
+
+  .dialog-box-image {
+    height: 100px;
+    width: 100px;
+  }
+
+  #main-logo {
+    width: 20vw;
+    height: auto;
   }
 }
